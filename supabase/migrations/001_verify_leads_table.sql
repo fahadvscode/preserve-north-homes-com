@@ -1,4 +1,5 @@
 -- Verify the shared preserve_north_leads table exists. Do not drop or recreate blindly.
+-- This site inserts site_source = 'https://preservenorthhomes.com'.
 -- Idempotent safety net — only creates the table if it is genuinely missing.
 
 select to_regclass('public.preserve_north_leads') as leads_table_exists;
