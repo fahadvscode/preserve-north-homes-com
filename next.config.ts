@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "Content-Type", value: "application/xml; charset=utf-8" },
           { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
+          { key: "Content-Disposition", value: "inline" },
+          { key: "X-Content-Type-Options", value: "nosniff" },
         ],
       },
       {
