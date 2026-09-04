@@ -1,9 +1,4 @@
-import { writeFileSync } from "node:fs";
-import { join } from "node:path";
 import type { NextConfig } from "next";
-import { buildSitemapXml } from "./lib/sitemap-xml";
-
-writeFileSync(join(process.cwd(), "public/sitemap.xml"), buildSitemapXml());
 
 const nextConfig: NextConfig = {
   trailingSlash: false,
@@ -25,7 +20,13 @@ const nextConfig: NextConfig = {
         headers: [
           { key: "Content-Type", value: "application/xml; charset=utf-8" },
           { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
-          { key: "Content-Disposition", value: "inline" },
+        ],
+      },
+      {
+        source: "/sitemap/sitemap.xml",
+        headers: [
+          { key: "Content-Type", value: "application/xml; charset=utf-8" },
+          { key: "Cache-Control", value: "public, max-age=3600, must-revalidate" },
         ],
       },
       {
